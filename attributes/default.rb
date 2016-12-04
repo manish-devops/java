@@ -18,7 +18,7 @@
 # limitations under the License.
 
 # default jdk attributes
-default['java']['jdk_version'] = '6'
+default['java']['jdk_version'] = '8'
 default['java']['arch'] = node['kernel']['machine'] =~ /x86_64/ ? 'x86_64' : 'i586'
 default['java']['openjdk_packages'] = []
 default['java']['openjdk_version'] = nil
@@ -47,7 +47,7 @@ when 'windows'
 when 'mac_os_x'
   default['java']['install_flavor'] = 'homebrew'
 else
-  default['java']['install_flavor'] = 'openjdk'
+  default['java']['install_flavor'] = 'oracle'
 end
 
 case node['java']['install_flavor']
@@ -132,8 +132,8 @@ default['java']['jdk']['8']['bin_cmds'] = %w(appletviewer apt ControlPanel extch
 # Official checksums for the latest release can be found at https://www.oracle.com/webfolder/s/digest/8u60checksum.html
 
 # x86_64
-default['java']['jdk']['8']['x86_64']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz'
-default['java']['jdk']['8']['x86_64']['checksum'] = '467f323ba38df2b87311a7818bcbf60fe0feb2139c455dfa0e08ba7ed8581328'
+default['java']['jdk']['8']['x86_64']['url'] = 'https://nexus.global.tesco.org/nexus/service/local/repositories/108_LearningTemp/content/jdk/jdk-8u111-linux-x64.tar/1/jdk-8u111-linux-x64.tar-1-x64.tar.gz'
+default['java']['jdk']['8']['x86_64']['checksum'] = '187eda2235f812ddb35c352b5f9aa6c5b184d611c2c9d0393afb8031d8198974'
 
 # i586
 default['java']['jdk']['8']['i586']['url'] = 'http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-i586.tar.gz'
